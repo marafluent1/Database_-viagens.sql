@@ -1,11 +1,12 @@
- Estrutura da tabela `DATABASE viagens`
+--
+ --Estrutura da tabela `DATABASE viagens`
 --
 
 CREATE TABLE `DATABASE viagens` (
   `Viagens` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-
- Estrutura da tabela `clientes`
+--
+ -- Estrutura da tabela `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -15,15 +16,15 @@ CREATE TABLE `clientes` (
   `telefone` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-
-Extraindo dados da tabela `clientes`
+--
+-- Extraindo dados da tabela `clientes`
 --
 
 INSERT INTO `clientes` (`id_cliente`, `nome`, `email`, `telefone`) VALUES
 (1, 'Ana Silva', 'ana@email.com', '912345678');
 
-
-Estrutura da tabela `destinos`
+--
+-- Estrutura da tabela `destinos`
 --
 
 CREATE TABLE `destinos` (
@@ -33,7 +34,8 @@ CREATE TABLE `destinos` (
   `preco` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 
-Estrutura da tabela `reservas`
+--
+-- Estrutura da tabela `reservas`
 --
 
 CREATE TABLE `reservas` (
@@ -43,8 +45,8 @@ CREATE TABLE `reservas` (
   `data_reserva` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
 
-
-Índices para tabela `clientes`
+--
+-- Índices para tabela `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`);
@@ -55,14 +57,16 @@ ALTER TABLE `clientes`
 ALTER TABLE `destinos`
   ADD PRIMARY KEY (`id_destino`);
 
-  Índices para tabela `reservas`
+--
+  --Índices para tabela `reservas`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
   ADD KEY `id_cliente` (`id_cliente`),
   ADD KEY `id_destino` (`id_destino`);
 
-  AUTO_INCREMENT de tabela `clientes`
+--
+  -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
@@ -80,3 +84,13 @@ ALTER TABLE `reservas`
   MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- Limitadores para a tabela `reservas`
+--
+ALTER TABLE `reservas`
+  ADD CONSTRAINT `1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `2` FOREIGN KEY (`id_destino`) REFERENCES `destinos` (`id_destino`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
