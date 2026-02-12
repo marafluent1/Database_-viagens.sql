@@ -61,3 +61,22 @@ ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
   ADD KEY `id_cliente` (`id_cliente`),
   ADD KEY `id_destino` (`id_destino`);
+
+  AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `destinos`
+--
+ALTER TABLE `destinos`
+  MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT;
+
+--
