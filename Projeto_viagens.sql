@@ -41,4 +41,16 @@ CREATE TABLE `reservas` (
   `id_cliente` int(11) NOT NULL,
   `id_destino` int(11) NOT NULL,
   `data_reserva` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+
+
+Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Índices para tabela `destinos`
+--
+ALTER TABLE `destinos`
+  ADD PRIMARY KEY (`id_destino`);
