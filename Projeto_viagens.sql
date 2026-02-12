@@ -54,3 +54,10 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `destinos`
   ADD PRIMARY KEY (`id_destino`);
+
+  Índices para tabela `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`id_reserva`),
+  ADD KEY `id_cliente` (`id_cliente`),
+  ADD KEY `id_destino` (`id_destino`);
