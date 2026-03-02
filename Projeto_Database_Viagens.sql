@@ -79,3 +79,33 @@ CREATE TABLE `pagamento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cliente`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Índices para tabela `destinos`
+--
+ALTER TABLE `destinos`
+  ADD PRIMARY KEY (`id_destino`);
+
+--
+-- Índices para tabela `pagamento`
+--
+ALTER TABLE `pagamento`
+  ADD PRIMARY KEY (`id_pagamento`),
+  ADD KEY `id_reserva` (`id_reserva`);
+
+--
+-- Índices para tabela `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`id_reserva`),
+  ADD KEY `id_cliente` (`id_cliente`,`id_destino`),
+  ADD KEY `id_destino` (`id_destino`);
