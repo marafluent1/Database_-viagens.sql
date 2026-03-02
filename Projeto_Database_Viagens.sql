@@ -52,3 +52,18 @@ CREATE TABLE `destinos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Estrutura da tabela `reservas`
+--
+
+CREATE TABLE `reservas` (
+  `id_reserva` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_destino` int(11) NOT NULL,
+  `data_reserva` timestamp NOT NULL DEFAULT current_timestamp(),
+  `data_viagem` date NOT NULL,
+  `quantidade_pessoas` int(11) NOT NULL DEFAULT 1,
+  `preco_total` decimal(10,0) NOT NULL,
+  `estado` varchar(50) NOT NULL DEFAULT 'Pendente'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
