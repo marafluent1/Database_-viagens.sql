@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 -- Banco de dados: `viagens`
 --
 CREATE DATABASE IF NOT EXISTS `viagens` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `viagens`
+USE `viagens`;
 
 -- --------------------------------------------------------
 
@@ -36,6 +36,19 @@ CREATE TABLE `clientes` (
   `telefone` varchar(20) NOT NULL,
   `data_nascimento` date NOT NULL,
   `data_registo` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Estrutura da tabela `destinos`
+--
+
+CREATE TABLE `destinos` (
+  `id_destino` int(11) NOT NULL,
+  `pais` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `descricao` text NOT NULL,
+  `preco_base` decimal(10,0) NOT NULL,
+  `vagas_disponiveis` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
