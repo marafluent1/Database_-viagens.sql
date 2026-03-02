@@ -66,4 +66,16 @@ CREATE TABLE `reservas` (
   `estado` varchar(50) NOT NULL DEFAULT 'Pendente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Estrutura da tabela `pagamento`
+--
+
+CREATE TABLE `pagamento` (
+  `id_pagamento` int(11) NOT NULL,
+  `id_reserva` int(11) NOT NULL,
+  `metodo_pagamento` varchar(50) NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
+  `data_pagamento` timestamp NOT NULL DEFAULT current_timestamp(),
+  `estado` varchar(50) NOT NULL DEFAULT 'Pago'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
