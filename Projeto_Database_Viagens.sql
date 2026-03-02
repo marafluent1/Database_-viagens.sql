@@ -161,3 +161,40 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nome`, `email`, `telefone`, `data_nascimento`, `data_registo`) VALUES
+(1, 'João Silva', 'joao@email.com', '912345678', '1995-03-12', '2026-03-02 13:50:54'),
+(2, 'Maria Costa', 'maria@email.com', '934567890', '1998-07-21', '2026-03-02 13:50:54'),
+(3, 'Pedro Santos', 'pedro@email.com', '965432187', '1990-11-05', '2026-03-02 13:50:54');
+
+--
+-- Extraindo dados da tabela `destinos`
+--
+
+INSERT INTO `destinos` (`id_destino`, `pais`, `cidade`, `descricao`, `preco_base`, `vagas_disponiveis`) VALUES
+(1, 'Itália', 'Roma', 'Viagem cultural por Roma', 800, 20),
+(2, 'França', 'Paris', 'Fim de semana romântico', 1000, 15),
+(3, 'Espanha', 'Barcelona', 'Praia e diversão', 600, 25),
+(4, 'Brasil', 'Rio de Janeiro', 'Carnaval no Rio', 1500, 10);
+
+--
+-- Extraindo dados da tabela `reservas`
+--
+
+INSERT INTO `reservas` (`id_reserva`, `id_cliente`, `id_destino`, `data_reserva`, `data_viagem`, `quantidade_pessoas`, `preco_total`, `estado`) VALUES
+(1, 1, 1, '2026-03-02 13:56:29', '2026-06-15', 2, 1600, 'Confirmada'),
+(2, 2, 2, '2026-03-02 13:56:29', '2026-07-10', 1, 1000, 'Pendente'),
+(3, 3, 3, '2026-03-02 13:56:29', '2026-08-05', 3, 1800, 'Confirmada');
+
+--
+-- Extraindo dados da tabela `pagamento`
+--
+
+INSERT INTO `pagamento` (`id_pagamento`, `id_reserva`, `metodo_pagamento`, `valor`, `data_pagamento`, `estado`) VALUES
+(1, 1, 'Cartão', 1599.98, '2026-03-02 13:58:29', 'Pago'),
+(2, 2, 'MBWay', 999.99, '2026-03-02 13:58:29', 'Pago'),
+(3, 3, 'PayPal', 1799.97, '2026-03-02 13:58:29', 'Pago');
+
